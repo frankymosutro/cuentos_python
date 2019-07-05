@@ -3,7 +3,74 @@
 {% block title %}Crea tu Cuento{% endblock %}
 
 {% block contenido %}
+<script>
+  $(document).ready(function(){
+    showTextFromInput('#nombre_nino', '.nombreTexto');
+    dataFromVariable(nombre_nino, '.nombreTexto', '[NOMBRE]');
+  })
 
+  pelo = "";
+
+  if(pelo == 'afrocorto') {
+    chooseHair('afro');
+  } else if (pelo == 'afrolargo'){
+    chooseHair('afro');
+  } else if(pelo == 'lisocorto' 
+      || pelo == 'lisolargo' 
+      || pelo == 'rizadocorto'
+      || pelo == 'rizadolargo'
+    ) {
+    chooseHair('otherHair');
+  }
+
+  //switch colors and hair
+  function chooseHair(type){
+    if(type == 'afro'){
+      $('#colorDelPelo').css('display', 'none');
+      $('#colorDelPeloAfro').css('display', 'block');
+      $('#colorDelPeloAfro').find('input').attr("disabled", false);
+      $("#colorDelPelo").find('input').attr("disabled", true);
+    } else if(type == 'otherHair'){
+      $('#colorDelPeloAfro').css('display', 'none');
+      $('#colorDelPelo').css('display', 'block');
+      $('#colorDelPelo').find('input').attr("disabled", false);
+      $("#colorDelPeloAfro").find('input').attr("disabled", true);
+    }
+  }
+
+  //inputs and variables
+  var nombre_nino = "";
+  //get data from variable
+  function dataFromVariable(text, output, staticText){
+        if(text){
+            console.log(text);
+            $(output).each(function(){
+                $(this).text(text);
+            })
+        } else {
+            $(output).each(function(){
+                $(this).text(staticText)
+            })
+        }
+    }
+
+  //get data from inputs
+  function showTextFromInput(input, output){
+        $(input).on('input paste propertychange change keyup keypress', function () {
+            var that = this;
+      if($(input).val().length == 0){
+        console.log('inside input length = 0')
+        $(output).each(function(){
+          $(this).text('[NOMBRE]');
+        })
+      } else {
+        $(output).each(function(){
+          $(this).text($(that).val());
+        })
+      }
+        });
+    }
+  </script>
   <div class="banner-cuento">
   </div>
   <div class="fase2 seccion-personaliza container mt-5">
@@ -255,35 +322,14 @@
         </form>
     </div>
 </div>
-
-  <!-- <section class="grid-container1 req-container">
-    <div class="item1">
-      El libro es para:
-    </div>
-    <div class="item2">
-      <input type="text" name="" value="">
-    </div>
-    <div class="item3">
-      Y es:
-    </div>
-    <div class="item4">
-      4
-    </div>
-    <div class="item5">
-      Color de ojos:
-    </div>
-    <div class="item6">
-      6
-    </div>
-    <div class="item7">
-      Color de piel:
-    </div>
-    <div class="item8">
-      8
-    </div>
-
-
-  </section> -->
+<<script type="text/javascript">
+  !function(){var frizbit=window.frizbit=window.frizbit||[];if(!frizbit.initialize){if(frizbit.invoked){window.console&&console.error&&console.error("Frizbit snippet included twice.")}else{frizbit.invoked=!0;frizbit.methods=["identify", "user", "track","ready","debug","pageViewed","once","off","on"];frizbit.factory=function(t){return function(){var r=Array.prototype.slice.call(arguments);r.unshift(t);frizbit.push(r);return frizbit}};for(var t=0;t<frizbit.methods.length;t+=1){var r=frizbit.methods[t];frizbit[r]=frizbit.factory(r)}frizbit.load=function(t,r){r=r||{};var i="https://cdn.frizbit.com/js/",n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=i+"frizbit.min.js";var o=document.createElement("link");o.rel="stylesheet",o.href=i+"frizbit.min.css";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);a.parentNode.insertBefore(o,a);frizbit._loadOptions=r;frizbit._loadOptions.appKey=t};
+  frizbit.SNIPPET_VERSION="0.0.3";
+  frizbit.load("2211f14e7dd8f22e");
+  frizbit.identify({language: 'es-es'});
+  frizbit.pageViewed();
+  }}}();
+</script>
 
 <div class=" pasos-cuento text-center" style="margin:0px;margin-top:30px;top:10px;">
       <div class="row-cuento container-paso">

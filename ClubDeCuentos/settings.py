@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cuentos',
-    'captcha',
+    
     ]
 
 MIDDLEWARE = [
@@ -131,8 +131,4 @@ EMAIL_HOST_USER = 'jotsieruls@gmail.com'
 EMAIL_HOST_PASSWORD = 'bubulubueno'
 EMAIL_USE_TLS = True
 
-MANAGERS = [('Francisco', 'fespaco2012@gmail.com'),]
 
-#keys para captcha
-RECAPTCHA_PUBLIC_KEY = '6LePwDAUAAAAAObm8pIgAfyUiqMygbXlXzDSQmIl'
-RECAPTCHA_PRIVATE_KEY = '6LePwDAUAAAAAKx7Wq57owH0iO7JnVUU9oe1seD_'
