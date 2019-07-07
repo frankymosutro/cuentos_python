@@ -21,6 +21,6 @@ from django.urls import path, include
 urlpatterns = [
 	path('', include("cuentos.urls")), 
     path('admin/', admin.site.urls),
-    path('contact/', include('contact_form.recaptcha_urls')),
+    
 ]
 

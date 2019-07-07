@@ -6,38 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/static/css/main.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <title>Club de Cuentos- {% block title %}personaliza tu cuento {% endblock %}</title>
 </head>
 <body>
+  
+  <header class="Header-fijo">
+    <nav class="Header-fijo-nav">
+      <a href="/#Que-es">¿Que es?</a>
+      <a href="/#Conocenos">Conocenos</a>
+      <a href="/#characters">Personajes</a>
+    </nav>
+  </header>
+
 
   <header class="header">
-    <figure class="logo-case1">
-      <img src="/static/images/logo.png" alt="" class="logo1">
+    <figure class="logo-case">
+      <img src="/static/images/logo.png" alt="" class="logo">
     </figure>
     <nav>
-      <a href="/">Home</a>
-      <a href="/crear/cuento/">Crea Tu Cuento</a>
-      <a href="/contacto/">Contacto</a>
-      <a href="#" id="loginform" style="margin-right:8px">Login</a><span style="color:#fff;">|</span> <a href="/register/">Registro</a>
-      <div class="login">
-      <div class="arrow-up"></div>
-      <div class="formholder">
-        <div class="randompad">
-           <fieldset>
-             <label name="email">Email</label>
-             <input type="email" value="example@example.com" />
-             <label name="password">Password</label>
-             <input type="password" />
-             <input type="submit" value="Login" />
-            </fieldset>
-        </div>
-      </div>
-    </div>
-      <a href="/login">
-        <i class="fas fa-shopping-cart"></i>
-      </a>
+        <a href="/">Home</a>
+        
+        <a href="/login/">Sign Up</a>
+        <a href="/contacto/">Contacto</a>
+        <a href="/crear/cuento/">Crea Tu Cuento</a>
     </nav>
   </header>
    {% block contenido %}
@@ -211,22 +202,22 @@
     <input type="checkbox" class="checkbox" id="menu-toogle"/>
     <label for="menu-toogle" class="menu-toogle"></label>
     <nav class="nav">
-      <a href="/" class="nav__item current">Home</a>
-      <a href="/login" class="nav__item">Sign In</a>
-      <a href="/contacto" class="nav__item">Contacto</a>
+      <a href="index.html" class="nav__item current">Home</a>
+      <a href="login.html" class="nav__item">Sign In</a>
+      <a href="contacto.html" class="nav__item">Contacto</a>
       <a href="#Que-es" class="nav__item">¿Que es?</a>
       <a href="#Conocenos" class="nav__item">Conocenos</a>
-      <a href="/crear/cuento/" class="nav__item">Cuentos</a>
+      <a href="cuento.html" class="nav__item">Cuentos</a>
     </nav>
   </div>
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script  src="/static/js/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="/static/js/particles.js"></script>
   <script src="/static/js/app.js"></script>
+   <script src="/static/js/login.js"></script>
 
    
 
