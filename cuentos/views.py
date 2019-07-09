@@ -13,4 +13,10 @@ def nuevo_contacto(request):
 
 def crea_cuento(request):
     """ Vista para atender la petción de la url contacto """
-    return render(request, "cuentos/cuento.html")    
+    return render(request, "cuentos/cuento.html")
+
+def registro(request):
+    """ Vista para atender la petición de la url / """
+    return render(request, "registration/registro.html")  
+
+  

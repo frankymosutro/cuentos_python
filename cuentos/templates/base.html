@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <title>Club de Cuentos- {% block title %}personaliza tu cuento {% endblock %}</title>
+  {% load socialaccount %}
 </head>
 <body>
 
@@ -20,7 +21,7 @@
       <a href="/">Home</a>
       <a href="/crear/cuento/">Crea Tu Cuento</a>
       <a href="/contacto/">Contacto</a>
-      <a href="#" id="loginform" style="margin-right:8px">Login</a><span style="color:#fff;">|</span> <a href="/register/">Registro</a>
+      <a href="#" id="loginform" style="margin-right:8px">Login</a><span style="color:#fff;">|</span> <a href="/registro/">Registro</a>
       <div class="login">
       <div class="arrow-up"></div>
       <div class="formholder">
@@ -32,6 +33,10 @@
              <input type="password" />
              <input type="submit" value="Login" />
             </fieldset>
+            <div class="bts">
+         <a href="{% provider_login_url "facebook" method="oauth2" %}" class="fblogin social"><i class="fab fa-facebook-f"></i><span>Inicia sesion con Facebook</span></a>
+         <a href="{% provider_login_url "google" method="oauth2" %}" class="gplogin social"><i class="fab fa-google-plus-g"></i><span>Inicia sesion con Google</span></a>
+     </div>
         </div>
       </div>
     </div>

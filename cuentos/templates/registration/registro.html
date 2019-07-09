@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+{% block title %}Registro{% endblock %}
+
+{% block contenido %}
+  <div class="banner-login">
+  </div>
+  <div class="login-page" id="login-form">
+  <div class="left">
+   <form class="form">
+    {% csrf_token %}
+      <form class="register-form" method="POST">
+        <input type="text" placeholder="nombre" name="username" />
+        <input type="password" placeholder="password" name="password"/>
+        <input type="text" placeholder="email" name="email"/>
+        <input type="submit" name="submit" value="Crear cuenta" />
+        {% comment %} <p class="message">Ya estas registrado? <a href="#">Inicia Sesión</a></p> {% endcomment %}
+      </form>
+      <!--<form class="login-form">
+        <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/>
+        <button>Iniciar sesion</button>
+        <p class="message">No estas regsitrado? <a href="#">Crea una cuenta</a></p>
+      </form>-->
+    </div>
+    </div>
+    <div class="right">
+      <a href="#" style="float:right;margin-right:35px;font-size: 0.9em; color: #6887BD;"><h3 class="title">Inicia sesión con redes sociales!</h3></a>
+       <div class="bts">
+         <a href="{% provider_login_url "facebook" method="oauth2" %}" class="fblogin social"><i class="fab fa-facebook-f"></i><span>Inicia sesion con Facebook</span></a>
+         <a href="{% provider_login_url "google" method="oauth2" %}" class="gplogin social"><i class="fab fa-google-plus-g"></i><span>Inicia sesion con Google</span></a>
+     </div>
+     {% if next %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        {% else %}
+        <input type="hidden" name="next" value="/" />
+        {% endif %}
+        {% if msg %}
+        <aside class="alert alert-dismissible alert-danger">
+            {{ msg }}
+        </aside>
+        {% endif %}
+  </div>
+   {% endblock %}
