@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.linkedin_oauth2',
     'allauth.socialaccount.providers.twitter',
+    'bootstrapform',
 ]
 
 # Necesario para allauth
@@ -145,10 +146,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Se define la URL para login
-LOGIN_URL = "/login/"
+# LOGIN_URL = "/login/"
 
 # Email related stuff
-ACCOUNT_ACTIVATION_DAYS = 7
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'jotsieruls@gmail.com'
 EMAIL_HOST_PASSWORD = 'bubulubueno'
@@ -157,3 +158,11 @@ EMAIL_USE_TLS = True
 
 # Necesario para allauth
 LOGIN_REDIRECT_URL = "/"
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 # 1 day in seconds
+
+# redirects to /accounts/profile by default

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <title>Club de Cuentos- {% block title %}personaliza tu cuento {% endblock %}</title>
   {% load socialaccount %}
+  {% load bootstrap %}
 </head>
 <body>
 
@@ -21,18 +22,29 @@
       <a href="/">Home</a>
       <a href="/crear/cuento/">Crea Tu Cuento</a>
       <a href="/contacto/">Contacto</a>
-      <a href="#" id="loginform" style="margin-right:8px">Login</a><span style="color:#fff;">|</span> <a href="/registro/">Registro</a>
+      <a href="#" id="loginform" style="margin-right:8px">Login</a><span style="color:#fff;">|</span> <a href="/accounts/signup/">Registro</a>
       <div class="login">
       <div class="arrow-up"></div>
       <div class="formholder">
         <div class="randompad">
-           <fieldset>
-             <label name="email">Email</label>
-             <input type="email" value="example@example.com" />
-             <label name="password">Password</label>
-             <input type="password" />
-             <input type="submit" value="Login" />
-            </fieldset>
+           {% get_providers as socialaccount_providers %}
+
+<p> {% with site.name as site_name %}
+Inicie sesión con una de sus cuentas de terceros existentes. O, <a href="{{ signup_url }}">registrate</a>
+para obtener una cuenta en {{ site_name }} e inicia sesion{% endwith %}</p>
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  
+ 
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  
+  <div class="form-actions">
+    <button class="btn btn-primary" type="submit">Aceptar</button>
+    <a class="btn" href="{% url 'account_reset_password' %}">Se te olvido tu contraseña?</a>
+
+  </div>
+</form>
             <div class="bts">
          <a href="{% provider_login_url "facebook" method="oauth2" %}" class="fblogin social"><i class="fab fa-facebook-f"></i><span>Inicia sesion con Facebook</span></a>
          <a href="{% provider_login_url "google" method="oauth2" %}" class="gplogin social"><i class="fab fa-google-plus-g"></i><span>Inicia sesion con Google</span></a>

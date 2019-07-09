@@ -10,7 +10,7 @@
   <div class="left">
    
     {% csrf_token %}
-      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+      {% comment %} <p>Already have an account? Then please <a href="{{ login_url }}">sign in</a></p> {% endcomment %}
 
 <form id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
@@ -19,9 +19,10 @@
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <div class="form-actions">
-  <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
+  <button class="btn btn-primary" type="submit">Aceptar</button>
   </div>
 </form>
+</div>
     <div class="right">
       <a href="#" style="float:right;margin-right:35px;font-size: 0.9em; color: #6887BD;"><h3 class="title">Inicia sesión con redes sociales!</h3></a>
        <div class="bts">
