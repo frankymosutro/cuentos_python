@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+{% load bootstrap %}
+{% block title %}Registro{% endblock %}
+
+{% block contenido %}
+  <div class="banner-login">
+  </div>
+  <div class="login-page" id="login-form">
+  <div class="left">
+   
+    {% csrf_token %}
+      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+<form id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {{ form|bootstrap }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <div class="form-actions">
+  <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
+  </div>
+</form>
+    <div class="right">
+      <a href="#" style="float:right;margin-right:35px;font-size: 0.9em; color: #6887BD;"><h3 class="title">Inicia sesión con redes sociales!</h3></a>
+       <div class="bts">
+         <a href="{% provider_login_url "facebook" method="oauth2" %}" class="fblogin social"><i class="fab fa-facebook-f"></i><span>Inicia sesion con Facebook</span></a>
+         <a href="{% provider_login_url "google" method="oauth2" %}" class="gplogin social"><i class="fab fa-google-plus-g"></i><span>Inicia sesion con Google</span></a>
+     </div>
+     {% if next %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        {% else %}
+        <input type="hidden" name="next" value="/" />
+        {% endif %}
+        {% if msg %}
+        <aside class="alert alert-dismissible alert-danger">
+            {{ msg }}
+        </aside>
+        {% endif %}
+  </div>
+   {% endblock %}
