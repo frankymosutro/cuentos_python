@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.linkedin_oauth2',
     'allauth.socialaccount.providers.twitter',
     'bootstrapform',
+    'gmail',
 ]
 
 # Necesario para allauth
@@ -150,11 +151,8 @@ STATIC_URL = '/static/'
 
 # Email related stuff
 
-EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'jotsieruls@gmail.com'
 EMAIL_HOST_PASSWORD = 'bubulubueno'
-EMAIL_USE_TLS = True
-
 
 # Necesario para allauth
 LOGIN_REDIRECT_URL = "/"
