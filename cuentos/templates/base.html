@@ -28,23 +28,25 @@
       <div class="formholder">
         <div class="randompad">
            {% get_providers as socialaccount_providers %}
-
-<p> {% with site.name as site_name %}
-Inicie sesión con una de sus cuentas de terceros existentes. O, <a href="{{ signup_url }}">registrate</a>
-para obtener una cuenta en {{ site_name }} e inicia sesion{% endwith %}</p>
-
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
+            <p> {% with site.name as site_name %}
+            Inicie sesión con una de sus cuentas de terceros existentes. O, <a href="{{ signup_url }}">registrate</a>
+            para obtener una cuenta en {{ site_name }} e inicia sesion{% endwith %}</p>
+          <form method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   
+           <fieldset>
+             <label name="email">Email</label>
+             <input type="email" value="example@example.com" />
+             <label name="password">Password</label>
+             <input type="password" />
+             <input type="submit" value="Login" />
+            </fieldset>
  
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  
-  <div class="form-actions">
-    <button class="btn btn-primary" type="submit">Aceptar</button>
-    <a class="btn" href="{% url 'account_reset_password' %}">Se te olvido tu contraseña?</a>
-
-  </div>
-</form>
+            <div>
+              <a class="btn" href="{% url 'account_reset_password' %}">Se te olvido tu contraseña?</a>
+            </div>
+          </form>
             <div class="bts">
          <a href="{% provider_login_url "facebook" method="oauth2" %}" class="fblogin social"><i class="fab fa-facebook-f"></i><span>Inicia sesion con Facebook</span></a>
          <a href="{% provider_login_url "google" method="oauth2" %}" class="gplogin social"><i class="fab fa-google-plus-g"></i><span>Inicia sesion con Google</span></a>
