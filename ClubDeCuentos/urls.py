@@ -23,6 +23,7 @@ urlpatterns = [
 	path('', include("cuentos.urls")), 
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('gmail/', include('gmail.urls')),
     # path('accounts/profile/$', TemplateView.as_view(template_name='profile.html')),
     
 ]
