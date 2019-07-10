@@ -6,6 +6,9 @@
   <div class="banner-contacto">
   </div>
   
+<form method="POST" action="{% url 'gmail' %}">
+  {% csrf_token %}
+  
   <section class="Contact">
     <section class="form-contacto">
       <div class="Form-1-1">
@@ -24,8 +27,9 @@
         <p class="Form-Message">MENSAJE</p>
         <input type="text" name="message" value="" id="message" placeholder="Un mensaje">
       </div>
-      <button class="Contact-button">Enviar</button>
+      <button class="Contact-button" name="contacto">Enviar</button>
       </section>
+</form>
       <section class="Info">
         <div class="info-titulo">
           <h2>CONTACTA CON NOSOTROS</h2>
