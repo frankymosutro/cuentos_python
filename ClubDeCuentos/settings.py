@@ -152,7 +152,7 @@ STATIC_URL = '/static/'
 # Email related stuff
 
 EMAIL_HOST_USER = 'jotsieruls@gmail.com'
-EMAIL_HOST_PASSWORD = 'bubulubueno'
+EMAIL_HOST_PASSWORD = 'Bubulubueno'
 
 # Necesario para allauth
 LOGIN_REDIRECT_URL = "/"
@@ -162,5 +162,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 # 1 day in seconds
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #This will avoid the need for an SMTP server as e-mails
 
 # redirects to /accounts/profile by default

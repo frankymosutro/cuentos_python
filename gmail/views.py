@@ -17,7 +17,7 @@ def gmail(request):
             password=settings.EMAIL_HOST_PASSWORD
         )
         yag.send(
-            to="rictor@cuhrt.com",
+            to="fespaco2012@gmail.com",
             subject="Club de cuentos - Contacto",
             contents=body
         )

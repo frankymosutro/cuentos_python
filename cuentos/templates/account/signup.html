@@ -9,7 +9,7 @@
   <div class="login-page" id="login-form">
   <div class="left">
    
-    {% csrf_token %}
+    {% comment %} {% csrf_token %} {% endcomment %}
       {% comment %} <p>Already have an account? Then please <a href="{{ login_url }}">sign in</a></p> {% endcomment %}
 
 <form id="signup_form" method="post" action="{% url 'account_signup' %}">

@@ -37,6 +37,7 @@ class Cuento(models.Model):
 	Titulo = models.CharField(max_length=200)
 	Contenido = models.TextField(max_length=200000)
 	Precio = models.DecimalField(max_digits=10, decimal_places=2)
+    
 	#ventas = models.ManyToManyField(Ventas)
 	
 class Ventas(models.Model):

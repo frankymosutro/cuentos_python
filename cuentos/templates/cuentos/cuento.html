@@ -3,74 +3,11 @@
 {% block title %}Crea tu Cuento{% endblock %}
 
 {% block contenido %}
-<script>
-  $(document).ready(function(){
-    showTextFromInput('#nombre_nino', '.nombreTexto');
-    dataFromVariable(nombre_nino, '.nombreTexto', '[NOMBRE]');
-  })
 
-  pelo = "";
+ 
+  var =   nombre_hijo = "";
+ 
 
-  if(pelo == 'afrocorto') {
-    chooseHair('afro');
-  } else if (pelo == 'afrolargo'){
-    chooseHair('afro');
-  } else if(pelo == 'lisocorto' 
-      || pelo == 'lisolargo' 
-      || pelo == 'rizadocorto'
-      || pelo == 'rizadolargo'
-    ) {
-    chooseHair('otherHair');
-  }
-
-  //switch colors and hair
-  function chooseHair(type){
-    if(type == 'afro'){
-      $('#colorDelPelo').css('display', 'none');
-      $('#colorDelPeloAfro').css('display', 'block');
-      $('#colorDelPeloAfro').find('input').attr("disabled", false);
-      $("#colorDelPelo").find('input').attr("disabled", true);
-    } else if(type == 'otherHair'){
-      $('#colorDelPeloAfro').css('display', 'none');
-      $('#colorDelPelo').css('display', 'block');
-      $('#colorDelPelo').find('input').attr("disabled", false);
-      $("#colorDelPeloAfro").find('input').attr("disabled", true);
-    }
-  }
-
-  //inputs and variables
-  var nombre_nino = "";
-  //get data from variable
-  function dataFromVariable(text, output, staticText){
-        if(text){
-            console.log(text);
-            $(output).each(function(){
-                $(this).text(text);
-            })
-        } else {
-            $(output).each(function(){
-                $(this).text(staticText)
-            })
-        }
-    }
-
-  //get data from inputs
-  function showTextFromInput(input, output){
-        $(input).on('input paste propertychange change keyup keypress', function () {
-            var that = this;
-      if($(input).val().length == 0){
-        console.log('inside input length = 0')
-        $(output).each(function(){
-          $(this).text('[NOMBRE]');
-        })
-      } else {
-        $(output).each(function(){
-          $(this).text($(that).val());
-        })
-      }
-        });
-    }
-  </script>
   <div class="banner-cuento">
   </div>
   <div class="fase2 seccion-personaliza container mt-5">
@@ -106,7 +43,7 @@
                   <span aria-hidden="true">×</span>
                 </button>
             </div>
-                  <form method="POST" id="formulario-paso1" action="https://micuento.com/es-mx/personalizacion/66/"><input type='hidden' name='csrfmiddlewaretoken' value='CoxRSJmhDJKTJsLXntUkSugvH1cGbm1cwaCeLQMHWSsLuK9NxST9joy1PNnktH1b' />
+                  <form method="POST" id="formulario-paso1"><input type='hidden' name='csrfmiddlewaretoken' value='CoxRSJmhDJKTJsLXntUkSugvH1cGbm1cwaCeLQMHWSsLuK9NxST9joy1PNnktH1b' />
 <input type="hidden" name="country" value='es-mx'>
 <input type="hidden" name="text" value='mx'>
   <div class="field">
@@ -116,14 +53,14 @@
       </h5>
     </div>
     <div class="content-field col-md-6">
-      <input type="text" maxlength="13" id="nombre_nino" name="nombre_nino" required class="form-control" value="">
+      <input type="text" maxlength="13" id="nombre_hijo" name="nombre_hijo" required class="form-control" value="" onkeyup="actualiza_nombre()">
     </div>
   </div>
 
   <div class="field field-radio">
     <div class="label-field col-md-6 text-right">
       <h5>
-        Y ES:
+        Y ES: 
       </h5>
     </div>
     <div class="content-field col-md-6">
@@ -143,7 +80,7 @@
   <div class="field field-radio">
     <div class="label-field col-md-6 text-right">
       <h5>
-        Color de ojos de <span class="nombreTexto">[NOMBRE]</span>:
+        Color de ojos de <span id="nombre_nino"></span>:
       </h5>
     </div>
     <div class="content-field col-md-6 muchos-radios">
@@ -165,7 +102,7 @@
   <div class="field field-radio">
     <div class="label-field col-md-6 text-right">
       <h5>
-        Color de piel de <span class="nombreTexto">[NOMBRE]</span>:
+        Color de piel de <span2 id="nombre_nino2"></span>:
       </h5>
     </div>
     <div class="content-field col-md-6 muchos-radios">
@@ -187,7 +124,7 @@
   <div class="field field-radio" id="peinadoTextos">
     <div class="label-field col-md-6 text-right">
       <h5>
-        Tipo de pelo de <span class="nombreTexto">[NOMBRE]</span>:
+        Tipo de pelo de <span3 id="nombre_nino3"></span>:
       </h5>
     </div>
     <div class="content-field col-md-6 muchos-radios">
@@ -227,7 +164,7 @@
   <div class="field field-radio" id="colorDelPelo" style="display:none">
     <div class="label-field col-md-6 text-right">
       <h5>
-        Color de pelo de <span class="nombreTexto">[NOMBRE]</span>:
+        Color de pelo de <span4 id="nombre_nino4"></span>:
       </h5>
     </div>
     <div class="content-field col-md-6 muchos-radios">
@@ -257,7 +194,7 @@
   <div class="field field-radio" id="colorDelPeloAfro" style="display:none">
     <div class="label-field col-md-6 text-right">
       <h5>
-        Color de pelo de <span class="nombreTexto">[NOMBRE]</span>:
+        Color de pelo de <span id="nombre_nino4"></span>:
       </h5>
     </div>
     <div class="content-field col-md-6 muchos-radios">
@@ -322,14 +259,6 @@
         </form>
     </div>
 </div>
-<<script type="text/javascript">
-  !function(){var frizbit=window.frizbit=window.frizbit||[];if(!frizbit.initialize){if(frizbit.invoked){window.console&&console.error&&console.error("Frizbit snippet included twice.")}else{frizbit.invoked=!0;frizbit.methods=["identify", "user", "track","ready","debug","pageViewed","once","off","on"];frizbit.factory=function(t){return function(){var r=Array.prototype.slice.call(arguments);r.unshift(t);frizbit.push(r);return frizbit}};for(var t=0;t<frizbit.methods.length;t+=1){var r=frizbit.methods[t];frizbit[r]=frizbit.factory(r)}frizbit.load=function(t,r){r=r||{};var i="https://cdn.frizbit.com/js/",n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=i+"frizbit.min.js";var o=document.createElement("link");o.rel="stylesheet",o.href=i+"frizbit.min.css";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);a.parentNode.insertBefore(o,a);frizbit._loadOptions=r;frizbit._loadOptions.appKey=t};
-  frizbit.SNIPPET_VERSION="0.0.3";
-  frizbit.load("2211f14e7dd8f22e");
-  frizbit.identify({language: 'es-es'});
-  frizbit.pageViewed();
-  }}}();
-</script>
 
 <div class=" pasos-cuento text-center" style="margin:0px;margin-top:30px;top:10px;">
       <div class="row-cuento container-paso">
@@ -357,5 +286,19 @@
       </div>
 </div>
 
+<script>
+function actualiza_nombre() {
+  var tspan = document.getElementById("nombre_nino");
+  var tspan2 = document.getElementById("nombre_nino2");
+  var tspan3 = document.getElementById("nombre_nino3");
+  var tspan4 = document.getElementById("nombre_nino4");
+  var tinput = document.getElementById("nombre_hijo");
+
+  tspan.innerHTML = tinput.value;
+  tspan2.innerHTML = tinput.value;
+  tspan3.innerHTML = tinput.value;
+  tspan4.innerHTML = tinput.value;
+}
+</script>
 
  {% endblock %}
