@@ -1,0 +1,31 @@
+{% block title %}Crea tu Cuento{% endblock %}
+
+{% block contenido %}
+<!-- Buttons Previsualization -->
+<div id="buttons_preview" class="row buttons_preview">
+    <div class="col-md-4 col-xs-12 center">
+      <button id="back_page" type="button" onclick="previsualization.getObjectByName('desktop').backPage()" class= "button--next__funnel button__text__funnel">< Anterior</button>
+    </div>
+    <div class="col-md-4 col-xs-12 center">
+        <div class="button-back-prev">
+          <div class="button-back-prev__content-canviar">
+            <a href="https://micuento.com/personalizacion/30/491150kQXr/155529NGmI" class="button-back-prev__text">
+                <i class="fa fa-undo"></i>
+                Cambiar
+            </a>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-12 center">
+      <form id="form-add2cart" action="#" method="post">
+          <input type='hidden' name='csrfmiddlewaretoken' value='MzTpdu4klw1eTDGOtHpxBgXNwKcEBn8QxZw1oLjuWia0n62w1d1W3RpdWaGLlViL' />
+          <button id="next_page" type="button" onclick="previsualization.getObjectByName('desktop').nextPage()" class= "button--next__funnel button__text__funnel">Siguiente > </button>
+          <input onclick="disableSubmit(this)" class="small_hide button--next__funnel button__text__funnel" id="buy_book" type="submit"  value="Comprar"  />
+          <input onclick="disableSubmit(this)" class="big_hide button--next__funnel button__text__funnel" type="submit" value="Comprar" id="siguiente-paso-5" >
+          <h6 class="text_confirmation" id="text_confirmation">
+            Confirmo que los datos, la foto y la dedicatoria están correctos y aparecerán en el libro tal y como se muestra aquí.
+          </h6>
+      </form>
+    </div>
+</div>
+ {% endblock %}

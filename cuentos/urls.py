@@ -9,4 +9,5 @@ urlpatterns = [
     path("logout/", auth_views.LogoutView.as_view(next_page="/"), name="logout"),
     path("contacto/", views.nuevo_contacto, name="nuevo_contacto"),
     path("crear/cuento/", views.crea_cuento, name="crea_cuento"),
+    path("crear/cuento/preview/", views.crea_cuento, name="cuento_preview"),
 ]
